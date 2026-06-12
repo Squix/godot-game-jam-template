@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://y7h2gyhro86k"]
+
+[ext_resource type="Script" uid="uid://b16kjim5fdy8t" path="res://scripts/ui/ui.gd" id="1_x4jx1"]
+[ext_resource type="Texture2D" uid="uid://c6dg8e01jqger" path="res://icon.svg" id="2_yev5y"]
+[ext_resource type="Script" uid="uid://bak8s1aff48ac" path="res://scripts/ui/game_over_ui.gd" id="3_yev5y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_75u2n"]
+font_size = 42
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilk7v"]
+bg_color = Color(0, 0, 0, 0.24705882)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilk7v"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paak"]
+bg_color = Color(0.99215686, 0.76862746, 0.08235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sqrc"]
+bg_color = Color(0.4627451, 0.6627451, 0.24705882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5en4g"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_7paak"]
+font_size = 20
+
+[node name="UI" type="Control" unique_id=979071823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x4jx1")
+
+[node name="Score" type="Control" parent="." unique_id=1423201446]
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 91.0
+offset_right = 106.0
+offset_bottom = 131.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Score" unique_id=1749811192]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Score/PanelContainer" unique_id=658063832]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScoreContainer" type="HBoxContainer" parent="Score/PanelContainer/MarginContainer" unique_id=914349394]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Score/PanelContainer/MarginContainer/ScoreContainer" unique_id=1137219321]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_yev5y")
+expand_mode = 3
+
+[node name="ScoreLabel" type="Label" parent="Score/PanelContainer/MarginContainer/ScoreContainer" unique_id=2132654117]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10 / 35"
+label_settings = SubResource("LabelSettings_75u2n")
+
+[node name="OpenSettingsMenu" type="Button" parent="." unique_id=1173468371]
+layout_mode = 0
+offset_left = 997.0
+offset_top = 89.0
+offset_right = 1079.0
+offset_bottom = 120.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS"
+
+[node name="SettingsDialog" type="Control" parent="." unique_id=1268272158]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SettingsDialog" unique_id=1628496316]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -11.440001
+anchor_top = -7.3430004
+anchor_right = 3.7500002
+anchor_bottom = 4.1730003
+offset_left = 607.5996
+offset_top = 343.7202
+offset_right = -0.00048828125
+offset_bottom = -116.91968
+theme_override_styles/panel = SubResource("StyleBoxFlat_ilk7v")
+
+[node name="CenterContainer" type="CenterContainer" parent="SettingsDialog" unique_id=187822786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsDialog/CenterContainer" unique_id=1292459615]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsDialog/CenterContainer/PanelContainer" unique_id=45034433]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer" unique_id=135812541]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer" unique_id=711543426]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=649535765]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1713534939]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AMBIENT VOLUME"
+label_settings = SubResource("LabelSettings_ilk7v")
+
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=908905662]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_7paak")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5sqrc")
+min_value = -5.0
+max_value = 5.0
+step = 0.1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=1251499531]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1673282449]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX VOLUME"
+label_settings = SubResource("LabelSettings_ilk7v")
+
+[node name="SFXVolumeSlider" type="HSlider" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1778286252]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_7paak")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5sqrc")
+min_value = -5.0
+max_value = 5.0
+step = 0.1
+
+[node name="CloseSettingsButton" type="Button" parent="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=2023544255]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "CLOSE"
+
+[node name="GameOver" type="Control" parent="." unique_id=1175319480]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yev5y")
+
+[node name="Panel" type="Panel" parent="GameOver" unique_id=125597947]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -11.440001
+anchor_top = -7.3430004
+anchor_right = 3.7500002
+anchor_bottom = 4.1730003
+offset_left = 607.5996
+offset_top = 343.7202
+offset_right = -0.00048828125
+offset_bottom = -116.91968
+theme_override_styles/panel = SubResource("StyleBoxFlat_ilk7v")
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOver" unique_id=2100954671]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="GameOver/CenterContainer" unique_id=1700792930]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver/CenterContainer/Panel" unique_id=649079668]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/CenterContainer/Panel/MarginContainer" unique_id=1616454845]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=36265035]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1797447055]
+layout_mode = 2
+
+[node name="GameOverTitle" type="Label" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1149932152]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GAME LOST!"
+label_settings = SubResource("LabelSettings_5en4g")
+horizontal_alignment = 1
+
+[node name="GameOverSubtitle" type="Label" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1359535400]
+layout_mode = 2
+text = "You lost subtitle."
+label_settings = SubResource("LabelSettings_7paak")
+horizontal_alignment = 1
+
+[node name="GameOverScoreContainer" type="HBoxContainer" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2049203597]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/GameOverScoreContainer" unique_id=1079928069]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_yev5y")
+expand_mode = 3
+
+[node name="Score" type="Label" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/GameOverScoreContainer" unique_id=1348457684]
+layout_mode = 2
+text = "You saved {X} plants"
+label_settings = SubResource("LabelSettings_7paak")
+
+[node name="RestartButton" type="Button" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1666218793]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 30
+text = "RETRY"
+
+[connection signal="pressed" from="OpenSettingsMenu" to="." method="_on_open_settings_menu_pressed"]
+[connection signal="value_changed" from="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer2/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsDialog/CenterContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="pressed" from="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
