@@ -9,6 +9,19 @@ signal setting_changed(setting: SettingsManager.Settings, value: Variant)
 @onready var game_over_ui : GameOverUI = %GameOver
 @onready var score_label : Label = %ScoreLabel
 
+@onready var setting_bgm_volume : HSlider = %MusicVolumeSlider
+@onready var setting_sfx_volume : HSlider = %SFXVolumeSlider
+
+
+# onready sound sliders sync
+func _on_settings_manager_setting_loaded(setting: SettingsManager.Settings, value: Variant) -> void:
+	match setting:
+		SettingsManager.Settings.BGM_VOLUME:
+			setting_bgm_volume.set_value_no_signal(db_to_linear(value))
+		SettingsManager.Settings.SFX_VOLUME:
+			print("Debug default sfx volume: ", value)
+			setting_sfx_volume.set_value_no_signal(db_to_linear(value))
+
 # game_manager signals handlers
 
 func _on_game_manager_game_won(score: int) -> void:
@@ -48,8 +61,7 @@ func _on_open_settings_menu_pressed() -> void:
 	settings_ui.show()
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
-	play_sfx.emit(AudioPlayerManager.SFX.ButtonClick)
 	setting_changed.emit(SettingsManager.Settings.BGM_VOLUME, value)
 	
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
-	setting_changed.emit(SettingsManager.Settings.BGM_VOLUME, value)
+	setting_changed.emit(SettingsManager.Settings.SFX_VOLUME, value)

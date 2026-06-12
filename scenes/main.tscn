@@ -12,8 +12,10 @@ script = ExtResource("1_o5qli")
 script = ExtResource("2_jyhfs")
 
 [node name="SFXplayer" type="AudioStreamPlayer" parent="AudioPlayerManager" unique_id=1599284764]
+bus = &"SFX"
 
 [node name="BGMplayer" type="AudioStreamPlayer" parent="AudioPlayerManager" unique_id=139972823]
+bus = &"BGM"
 
 [node name="SettingsManager" type="Node" parent="." unique_id=1096131077]
 script = ExtResource("2_0wfyh")
@@ -24,6 +26,7 @@ script = ExtResource("2_0wfyh")
 [connection signal="game_won" from="." to="UI" method="_on_game_manager_game_won"]
 [connection signal="init_game" from="." to="UI" method="_on_game_manager_init_game"]
 [connection signal="score_updated" from="." to="UI" method="_on_game_manager_score_updated"]
+[connection signal="setting_loaded" from="SettingsManager" to="UI" method="_on_settings_manager_setting_loaded" flags=3]
 [connection signal="play_sfx" from="UI" to="AudioPlayerManager" method="play_sfx"]
 [connection signal="restart_button_pressed" from="UI" to="." method="_on_ui_restart_button_pressed"]
 [connection signal="setting_changed" from="UI" to="SettingsManager" method="_on_ui_setting_changed"]
