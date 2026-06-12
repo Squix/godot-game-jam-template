@@ -235,6 +235,7 @@ label_settings = SubResource("LabelSettings_5en4g")
 horizontal_alignment = 1
 
 [node name="GameOverSubtitle" type="Label" parent="GameOver/CenterContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1359535400]
+unique_name_in_owner = true
 layout_mode = 2
 text = "You lost subtitle."
 label_settings = SubResource("LabelSettings_7paak")
