@@ -3,7 +3,7 @@ class_name AudioPlayerManager
 
 enum SFX {ButtonClick}
 
-var _button_click_sfx_stream = preload("res://assets/sounds/button_click.mp3")
+var _button_click_sfx_stream : AudioStream = preload("res://assets/sounds/button_click.mp3")
 
 @onready var _sfx_player : AudioStreamPlayer = $SFXplayer
 @onready var _bgm_player : AudioStreamPlayer = $BGMplayer
