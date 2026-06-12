@@ -24,8 +24,9 @@ script = ExtResource("2_0wfyh")
 
 [connection signal="game_lost" from="." to="AudioPlayerManager" method="stop_bgm"]
 [connection signal="game_lost" from="." to="UI" method="_on_game_manager_game_lost"]
-[connection signal="game_won" from="." to="AudioPlayerManager" method="stop_bgm"]
+[connection signal="game_lost" from="." to="AudioPlayerManager" method="stop_bgm" unbinds=1]
 [connection signal="game_won" from="." to="UI" method="_on_game_manager_game_won"]
+[connection signal="game_won" from="." to="AudioPlayerManager" method="stop_bgm" unbinds=1]
 [connection signal="init_game" from="." to="AudioPlayerManager" method="play_bgm"]
 [connection signal="init_game" from="." to="UI" method="_on_game_manager_init_game"]
 [connection signal="score_updated" from="." to="UI" method="_on_game_manager_score_updated"]
@@ -33,3 +34,5 @@ script = ExtResource("2_0wfyh")
 [connection signal="play_sfx" from="UI" to="AudioPlayerManager" method="play_sfx"]
 [connection signal="restart_button_pressed" from="UI" to="." method="_on_ui_restart_button_pressed"]
 [connection signal="setting_changed" from="UI" to="SettingsManager" method="_on_ui_setting_changed"]
+[connection signal="pressed" from="GameLostButton" to="." method="_on_game_over"]
+[connection signal="pressed" from="GameWonButton" to="." method="_on_game_over" binds= [true]]

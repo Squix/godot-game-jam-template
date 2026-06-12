@@ -28,3 +28,10 @@ func _reset_game() -> void:
 
 func _on_ui_restart_button_pressed() -> void:
 	_reset_game()
+	
+func _on_game_over(won : bool = false) -> void:
+	if won:
+		game_won.emit(_score)
+	else:
+		game_lost.emit(_score)
+	state = GameState.GAMEOVER

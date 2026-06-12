@@ -27,10 +27,9 @@ func _on_settings_manager_setting_loaded(setting: SettingsManager.Settings, valu
 func _on_game_manager_game_won(score: int) -> void:
 	game_over_ui.set_title("Game won!")
 	game_over_ui.set_subtitle("You are the best <lore thing>!")
-	game_over_ui.set_score_label("You saved {0} plants!".format([score]))
+	game_over_ui.set_score_label("You saved {0} <lore things>!".format([score]))
 	game_over_ui.show_score()
 	game_over_ui.show()
-	game_over_ui.hide()
 
 func _on_game_manager_game_lost(_score: int) -> void:
 	game_over_ui.set_title("Game lost!")
