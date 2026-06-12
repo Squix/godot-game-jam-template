@@ -21,3 +21,7 @@ func _ready() -> void:
 func _init_game() -> void:
 	init_game.emit()
 	state = GameState.PLAYING
+
+func _reset_game() -> void:
+	reset_game.emit()
+	_init_game()
