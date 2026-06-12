@@ -52,5 +52,4 @@ func _on_music_volume_slider_value_changed(value: float) -> void:
 	setting_changed.emit(SettingsManager.Settings.BGM_VOLUME, value)
 	
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
-	play_sfx.emit(AudioPlayerManager.SFX.ButtonClick)
 	setting_changed.emit(SettingsManager.Settings.BGM_VOLUME, value)
