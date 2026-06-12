@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://b46imr8pdkv2j"]
 
 [ext_resource type="Script" uid="uid://daq5iqdpeek0y" path="res://scripts/ui/title_screen.gd" id="1_fgkus"]
-[ext_resource type="Texture2D" uid="uid://bjaq1r353jobl" path="res://assets/sprites/ui/SplashScreen_Background.png" id="2_s4lrb"]
-[ext_resource type="Texture2D" uid="uid://cwtiyqe026kes" path="res://assets/sprites/ui/Game_Logo.png" id="3_mgrm8"]
 [ext_resource type="AudioStream" uid="uid://cpdt3xx0cykt3" path="res://assets/sounds/button_click.mp3" id="4_mgrm8"]
 [ext_resource type="Texture2D" uid="uid://c6dg8e01jqger" path="res://icon.svg" id="5_dc4i4"]
 
+[sub_resource type="Gradient" id="Gradient_s4lrb"]
+colors = PackedColorArray(0.2784314, 0.54901963, 0.7490196, 1, 0.2784314, 0.54901963, 0.7490196, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mgrm8"]
+gradient = SubResource("Gradient_s4lrb")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e54dn"]
-texture = ExtResource("2_s4lrb")
+texture = SubResource("GradientTexture2D_mgrm8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs5ya"]
 expand_margin_left = 70.0
@@ -55,7 +59,7 @@ layout_mode = 2
 [node name="Logo" type="TextureRect" parent="Background/CenterContainer/TitleStep" unique_id=1567088795]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
-texture = ExtResource("3_mgrm8")
+texture = ExtResource("5_dc4i4")
 expand_mode = 3
 stretch_mode = 5
 
@@ -112,9 +116,9 @@ autowrap_mode = 2
 [node name="JamInfo" type="Control" parent="." unique_id=654401878]
 anchors_preset = 0
 offset_left = 47.0
-offset_top = 553.0
+offset_top = 552.0
 offset_right = 87.0
-offset_bottom = 593.0
+offset_bottom = 592.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="JamInfo" unique_id=317607866]
 layout_mode = 0
