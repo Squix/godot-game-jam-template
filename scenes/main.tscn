@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://gju4f0bu6rsk"]
 
 [ext_resource type="Script" uid="uid://df8uok6qo2gmn" path="res://scripts/game_manager.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://idfcov3pvuis" path="res://scripts/settings_manager.gd" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://y7h2gyhro86k" path="res://scenes/ui.tscn" id="3_sugp2"]
 
 [node name="GameManager" type="Node" unique_id=1621190859]
 script = ExtResource("1_o5qli")
+
+[node name="SettingsManager" type="Node" parent="." unique_id=1096131077]
+script = ExtResource("2_0wfyh")
+
+[node name="UI" parent="." unique_id=979071823 instance=ExtResource("3_sugp2")]
+
+[connection signal="restart_button_pressed" from="UI" to="." method="_on_ui_restart_button_pressed"]
+[connection signal="setting_changed" from="UI" to="SettingsManager" method="_on_ui_setting_changed"]

@@ -3,6 +3,7 @@ class_name UI
 
 signal restart_button_pressed()
 #signal playSFX(sound:SFXplayer.SFX)
+signal setting_changed(setting: SettingsManager.Settings, value: Variant)
 
 @onready var settings_ui : Control = %SettingsDialog
 @onready var game_over_ui : GameOverUI = %GameOver
@@ -41,7 +42,7 @@ func _on_open_settings_menu_pressed() -> void:
 	settings_ui.show()
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"), linear_to_db(value))
+	setting_changed.emit(SettingsManager.Settings.BGM_VOLUME, value)
 	
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+	setting_changed.emit(SettingsManager.Settings.BGM_VOLUME, value)
