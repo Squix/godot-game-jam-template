@@ -16,7 +16,7 @@ func _on_ui_setting_changed(setting: SettingsManager.Settings, new_value:Variant
 	match setting:
 		Settings.BGM_VOLUME:
 			AudioServer.set_bus_volume_db(_bgm_bus_idx, linear_to_db(new_value))
-			print("Debug BGM bus volume: ", AudioServer.get_bus_volume_db(_bgm_bus_idx))
+			#print("Debug BGM bus volume: ", AudioServer.get_bus_volume_db(_bgm_bus_idx))
 		Settings.SFX_VOLUME:
 			AudioServer.set_bus_volume_db(_sfx_bus_idx, linear_to_db(new_value))
-			print("Debug SFX bus volume: ", AudioServer.get_bus_volume_db(_sfx_bus_idx))
+			#print("Debug SFX bus volume: ", AudioServer.get_bus_volume_db(_sfx_bus_idx))
