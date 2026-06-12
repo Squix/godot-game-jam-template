@@ -6,3 +6,13 @@ signal reset_game
 signal game_won(score: int)
 signal game_lost(score: int)
 signal score_updated(new_score:int)
+
+var _score : int:
+	set(value):
+		score_updated.emit(value)
+
+func _ready() -> void:
+	_init_game()
+
+func _init_game() -> void:
+	init_game.emit()
