@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b46imr8pdkv2j"]
 
 [ext_resource type="Script" uid="uid://daq5iqdpeek0y" path="res://scripts/ui/title_screen.gd" id="1_fgkus"]
-[ext_resource type="AudioStream" uid="uid://cpdt3xx0cykt3" path="res://assets/sounds/button_click.mp3" id="4_mgrm8"]
 [ext_resource type="Texture2D" uid="uid://c6dg8e01jqger" path="res://icon.svg" id="5_dc4i4"]
 
 [sub_resource type="Gradient" id="Gradient_s4lrb"]
@@ -137,7 +136,6 @@ label_settings = SubResource("LabelSettings_cs5ya")
 
 [node name="SFXplayer" type="AudioStreamPlayer" parent="." unique_id=1350438839]
 unique_name_in_owner = true
-stream = ExtResource("4_mgrm8")
 bus = &"SFX"
 
 [connection signal="pressed" from="Background/CenterContainer/TitleStep/SeeHowTo" to="." method="_on_see_how_to_pressed"]
