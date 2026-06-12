@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://b46imr8pdkv2j"]
+
+[ext_resource type="Script" uid="uid://daq5iqdpeek0y" path="res://scripts/ui/title_screen.gd" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://bjaq1r353jobl" path="res://assets/sprites/ui/SplashScreen_Background.png" id="2_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://cwtiyqe026kes" path="res://assets/sprites/ui/Game_Logo.png" id="3_mgrm8"]
+[ext_resource type="AudioStream" uid="uid://cpdt3xx0cykt3" path="res://assets/sounds/button_click.mp3" id="4_mgrm8"]
+[ext_resource type="Texture2D" uid="uid://c6dg8e01jqger" path="res://icon.svg" id="5_dc4i4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e54dn"]
+texture = ExtResource("2_s4lrb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs5ya"]
+expand_margin_left = 70.0
+expand_margin_top = 70.0
+expand_margin_right = 70.0
+expand_margin_bottom = 70.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3yumr"]
+line_spacing = 12.0
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_e54dn"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs5ya"]
+font_size = 24
+
+[node name="TitleScreen" type="Control" unique_id=927383986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="Background" type="PanelContainer" parent="." unique_id=496041656]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e54dn")
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=589163815]
+layout_mode = 2
+
+[node name="TitleStep" type="VBoxContainer" parent="Background/CenterContainer" unique_id=705384790]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="Background/CenterContainer/TitleStep" unique_id=1567088795]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+texture = ExtResource("3_mgrm8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SeeHowTo" type="Button" parent="Background/CenterContainer/TitleStep" unique_id=894702900]
+custom_minimum_size = Vector2(300, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+text = "How to play"
+
+[node name="HowToPlayStep" type="VBoxContainer" parent="Background/CenterContainer" unique_id=1586052516]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="Background/CenterContainer/HowToPlayStep" unique_id=977339270]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cs5ya")
+
+[node name="Label" type="Label" parent="Background/CenterContainer/HowToPlayStep/PanelContainer" unique_id=412998014]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "1. The Orobanche Ramosa is a parasite that KILLS colza
+2. Each turn, the parasite will MOVE to an adjacent square of the field
+3. FIND which squares it prefers by using TOOLS
+4. KILL the parasite by CUTTING or ISOLATING it
+5. Quick! You need to keep most of your field alive!"
+label_settings = SubResource("LabelSettings_3yumr")
+autowrap_mode = 3
+
+[node name="StartGame" type="Button" parent="Background/CenterContainer/HowToPlayStep" unique_id=1625365730]
+custom_minimum_size = Vector2(200, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+text = "PLAY"
+
+[node name="Credits" type="Label" parent="." unique_id=2112449107]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 466.0
+offset_right = 347.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+text = "By Squix and amazing partners"
+label_settings = SubResource("LabelSettings_e54dn")
+autowrap_mode = 2
+
+[node name="JamInfo" type="Control" parent="." unique_id=654401878]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 553.0
+offset_right = 87.0
+offset_bottom = 593.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JamInfo" unique_id=317607866]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="JamInfo/HBoxContainer" unique_id=1683333560]
+layout_mode = 2
+texture = ExtResource("5_dc4i4")
+expand_mode = 3
+
+[node name="Name" type="Label" parent="JamInfo/HBoxContainer" unique_id=1225989929]
+layout_mode = 2
+text = "SOME JAM"
+label_settings = SubResource("LabelSettings_cs5ya")
+
+[node name="SFXplayer" type="AudioStreamPlayer" parent="." unique_id=1350438839]
+unique_name_in_owner = true
+stream = ExtResource("4_mgrm8")
+bus = &"SFX"
+
+[connection signal="pressed" from="Background/CenterContainer/TitleStep/SeeHowTo" to="." method="_on_see_how_to_pressed"]
+[connection signal="pressed" from="Background/CenterContainer/HowToPlayStep/StartGame" to="." method="_on_start_game_pressed"]
