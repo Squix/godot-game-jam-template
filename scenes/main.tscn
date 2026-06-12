@@ -12,5 +12,7 @@ script = ExtResource("2_0wfyh")
 
 [node name="UI" parent="." unique_id=979071823 instance=ExtResource("3_sugp2")]
 
+[connection signal="game_lost" from="." to="UI" method="_on_game_game_lost"]
+[connection signal="game_won" from="." to="UI" method="_on_game_game_won"]
 [connection signal="restart_button_pressed" from="UI" to="." method="_on_ui_restart_button_pressed"]
 [connection signal="setting_changed" from="UI" to="SettingsManager" method="_on_ui_setting_changed"]

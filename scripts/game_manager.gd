@@ -25,3 +25,6 @@ func _init_game() -> void:
 func _reset_game() -> void:
 	reset_game.emit()
 	_init_game()
+
+func _on_ui_restart_button_pressed() -> void:
+	_reset_game()
