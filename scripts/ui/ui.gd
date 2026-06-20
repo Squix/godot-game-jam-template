@@ -19,7 +19,6 @@ func _on_settings_manager_setting_loaded(setting: SettingsManager.Settings, valu
 		SettingsManager.Settings.BGM_VOLUME:
 			setting_bgm_volume.set_value_no_signal(db_to_linear(value))
 		SettingsManager.Settings.SFX_VOLUME:
-			print("Debug default sfx volume: ", value)
 			setting_sfx_volume.set_value_no_signal(db_to_linear(value))
 
 # game_manager signals handlers
