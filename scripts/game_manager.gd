@@ -13,6 +13,7 @@ var state : GameState
 
 var _score : int:
 	set(value):
+		_score = value
 		score_updated.emit(value)
 
 func _ready() -> void:
